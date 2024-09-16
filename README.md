@@ -24,7 +24,7 @@ In this hackathon, the goal is to create a model that extracts important product
 ├── README.md               # This readme file
 └── requirements.txt        # Python dependencies
 ```
-Setup Instructions
+##Setup Instructions
 1. Environment Setup
 Ensure you have Python 3.7+ installed. Install the required dependencies by running the following command:
 
@@ -37,13 +37,13 @@ torch for deep learning models
 torchvision for image processing
 pytesseract for Optical Character Recognition (OCR)
 pandas, scikit-learn, and tqdm for data handling and processing
-2. Data
+##2. Data
 Place the following files in the dataset/ directory:
 
 train.csv: The training data with image links and entity values.
 test.csv: The test data without entity values (to be predicted).
 sample_test_out.csv: Sample output file for reference.
-3. Image Download
+##3. Image Download
 To download images from the provided URLs in train.csv and test.csv, use the download_images function from utils.py. Run the following command in a Python environment:
 ```
 python
@@ -55,7 +55,7 @@ train_data = pd.read_csv('dataset/train.csv')
 download_images(train_data['image_link'], 'train_images/')
 This will download all the images to the specified folder (train_images/).
 ```
-4. Model Training
+##4. Model Training
 The provided solution extracts features using a pre-trained ResNet model and applies OCR for text extraction. To train the model, open the Jupyter notebook (notebooks/training.ipynb) and run the code cells step by step.
 
 Alternatively, you can run the sample_code.py script, which generates a dummy output file for testing purposes:
@@ -64,7 +64,7 @@ bash
 Copy code
 python sample_code.py
 ```
-5. Prediction
+##5. Prediction
 Once the model is trained, use it to generate predictions for the test dataset. The predictions will be saved in the required format.
 
 Run the following command to make predictions:
@@ -75,7 +75,7 @@ python predict.py
 ```
 This will generate a test_out.csv file, which will be formatted according to the submission guidelines.
 
-6. Sanity Check
+##6. Sanity Check
 Before submitting, ensure the output passes the sanity checker provided in src/sanity.py. Run the checker as follows:
 ```
 bash
@@ -87,7 +87,7 @@ You should see a message like:
 Copy code
 Parsing successful for file: test_out.csv
 ```
-7. Submission
+##7. Submission
 Once the output passes the sanity checker, submit test_out.csv as your final prediction.
 
 Evaluation Criteria
@@ -110,7 +110,7 @@ Where:
 Precision = TP / (TP + FP)
 Recall = TP / (TP + FN)
 ```
-Notes
+###Notes
 Ensure that the predictions use the correct format: "x unit", where x is a float, and unit is one of the allowed units.
 Handle images where no entity value is detected by returning an empty string ("").
 Ensure that the output file has the same number of rows as the input test.csv.
